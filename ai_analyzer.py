@@ -5,7 +5,7 @@ import time
 import re
 
 # Set your OpenAI API key
-openai.api_key = "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"  # Replace with your actual OpenAI API key
+openai.api_key = "OPENAI_API_KEY"  # Replace with your actual OpenAI API key
 
 
 def extract_json_from_text(text):
