@@ -1,3 +1,9 @@
+
+    # Place all your existing app.py code here
+    # But remove the st.set_page_config() call since it's in streamlit_app.py
+    
+    # Rest of your code stays the same
+
 import streamlit as st
 import sqlite3
 import pandas as pd
@@ -6,13 +12,7 @@ import uuid
 from datetime import datetime
 import time
 
-# Set page config
-st.set_page_config(
-    page_title="Pendo Listen Simulator",
-    page_icon="📊",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+def app_content():
 
 # Dark theme styling
 st.markdown("""
