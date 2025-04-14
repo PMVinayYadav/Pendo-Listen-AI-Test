@@ -804,18 +804,20 @@ with tab4:
                 if not ideas_df.empty:
                     st.markdown("**Link to ideas:**")
                     idea_cols = st.columns(3)
-                    
+
+
                     for j, idea_row in enumerate(ideas_df.itertuples()):
-                        with idea_cols[j]:
-                            if st.button(f"{idea_row.title[:15]}...", key=f"link_{i}_{idea_row.idea_id}"):
-                                # Create mapping
-                                execute_sql(
-                                    "INSERT OR IGNORE INTO feedback_idea_map VALUES (?, ?)",
-                                    (row['feedback_id'], idea_row.idea_id)
-                                )
-                                st.success("Feedback linked to idea!")
-                                time.sleep(0.5)
-                                st.rerun()
+    with idea_cols[j]:
+        if st.button(f"{idea_row.title[:15]}...", key=f"link_loop_{i}_{j}_{idea_row.idea_id}"):
+            # Create mapping
+            execute_sql(
+                "INSERT OR IGNORE INTO feedback_idea_map VALUES (?, ?)",
+                (row['feedback_id'], idea_row.idea_id)
+            )
+            st.success("Feedback linked to idea!")
+            time.sleep(0.5)
+            st.rerun()
+
         else:
             st.info("No feedback data available.")
     
